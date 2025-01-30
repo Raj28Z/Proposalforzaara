@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Sweetheart ❣️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Dancing Script', cursive;
+            text-align: center;
+            color: white;
+            background: url('https://images.pexels.com/photos/1405525/pexels-photo-1405525.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            overflow: hidden;
+        }
+
+        /* Letter Box */
+        .letter-box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 15px;
+            font-size: 20px;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        /* Buttons */
+        .buttons {
+            margin-top: 20px;
+        }
+        .btn {
+            background: red;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 20px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: pink;
+        }
+
+        /* Proposal Section */
+        #proposal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        #proposal h1 {
+            font-size: 40px;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        /* Confetti */
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            border-radius: 50%;
+            opacity: 0.7;
+            animation: fall 3s linear infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(100vh); }
+        }
+    </style>
+
+    <script>
+        function propose() {
+            document.getElementById("letter").style.display = "none";
+            document.getElementById("proposal").style.display = "flex";
+            startConfetti();
+        }
+
+        function changeNoToYes() {
+            let noButton = document.getElementById("noButton");
+            noButton.innerText = "Yes";
+            noButton.onclick = propose;
+        }
+
+        function startConfetti() {
+            for (let i = 0; i < 50; i++) {
+                let confetti = document.createElement("div");
+                confetti.classList.add("confetti");
+                confetti.style.left = Math.random() * 100 + "vw";
+                confetti.style.animationDuration = Math.random() * 3 + 2 + "s";
+                document.body.appendChild(confetti);
+                setTimeout(() => confetti.remove(), 3000);
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Letter Pop-up -->
+    <div class="letter-box" id="letter">
+        <p>Heyy Sweetheart ❣️</p>
+        <p>I don't know if I'm good at this proposing stuff, but all I know is that I'm trying to be the **best version of myself** with you.</p>
+        <p>I want you to have the **best boyfriend (hubby)** in this world.</p>
+        <p>Thank youuu **a lotttt** for being this sweet and nice with me till now, and I look forward to **many more beautiful moments together**.</p>
+        <p>And I also have something to ask. Wanna know what it is? 😏</p>
+
+        <!-- Yes / No Buttons -->
+        <div class="buttons">
+            <button class="btn" onclick="propose()">Yes</button>
+            <button class="btn" id="noButton" onclick="changeNoToYes()">No</button>
+        </div>
+    </div>
+
+    <!-- Proposal Section -->
+    <div id="proposal">
+        <h1>Will you marry me sweetheart ❣️?</h1>
+    </div>
+
+    <!-- Romantic Background Music -->
+    <audio autoplay loop>
+        <source src="https://www.mboxdrive.com/10000hours.mp3" type="audio/mp3">
+    </audio>
+
+</body>
+</html>
